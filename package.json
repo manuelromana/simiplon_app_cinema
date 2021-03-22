@@ -1,0 +1,9 @@
+{
+  "scripts": {
+    "start": "node app.js"
+  },
+  "devDependencies": {
+    "node-emoji": "1.10.0",
+    "readline-sync": "1.4.10"
+  }
+}
