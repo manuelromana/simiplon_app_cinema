@@ -55,8 +55,6 @@ exports.makeMapOfCinema = (
 ) => {
   let cinemaListOfRows = makeArrayOfNbrOfUnit(CINEMA_ROWS, '');
   let mapOfcinema = cinemaListOfRows.map((line, idx) => {
-    // console.log(USER_WISHED_ROW);
-
     return makeMapOfRowOfSeats(
       CINEMA_ROWS,
       idx,
