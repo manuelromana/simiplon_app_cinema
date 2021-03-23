@@ -12,6 +12,7 @@ exports.getAndCheckUserInput = (question, maxValue = null) => {
   } else {
     return input;
   }
+  //gestion d'erreur pas complète
 };
 
 const makeArrayOfNbrOfUnit = (nbr, unit) => {
@@ -30,9 +31,9 @@ const makeMapOfRowOfSeats = (
   let final = lineOfSeats.map((seat, idx) => {
     if (ROW_IDX === CINEMA_ROWS) {
       if (idx === 0) {
-        return `infos `;
+        return `seat->`;
       } else {
-        return `  ${idx} `;
+        return `${idx}`.length === 1 ? ` ${idx}  ` : ` ${idx} `;
       }
     } else if (idx === 0) {
       let infosIdx =
@@ -41,12 +42,10 @@ const makeMapOfRowOfSeats = (
           : `row ${ROW_IDX + 1}`;
 
       return infosIdx;
-
-      //   console.log('toto');
     } else if (ROW_IDX === USER_WISHED_ROW - 1 && idx <= USER_NBR_OF_SEATS) {
-      return `[${emoji.get('x')}]`;
+      return `[${emoji.get('star')}]`;
     } else {
-      return `[${emoji.get('white_check_mark')}]`;
+      return `[${emoji.get('free')}]`;
     }
   });
   return final;
