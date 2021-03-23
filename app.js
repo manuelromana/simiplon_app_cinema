@@ -1,7 +1,7 @@
 const utils = require('./utils');
 
-const CINEMA_ROWS = 10;
-const CINEMA_NBR_OF_SEATS_PER_ROWS = 7;
+const CINEMA_ROWS = 50;
+const CINEMA_NBR_OF_SEATS_PER_ROWS = 25;
 
 let userNbrOfSeats = utils.getAndCheckUserInput('how many tickets ? ');
 let userWishedRow = utils.getAndCheckUserInput(

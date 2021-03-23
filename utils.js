@@ -28,14 +28,19 @@ const makeMapOfRowOfSeats = (
 ) => {
   let lineOfSeats = makeArrayOfNbrOfUnit(CINEMA_NBR_OF_SEATS_PER_ROWS, '');
   let final = lineOfSeats.map((seat, idx) => {
-    if (idx === 0) {
-      if (ROW_IDX === CINEMA_ROWS) {
-        return 'infos';
+    if (ROW_IDX === CINEMA_ROWS) {
+      if (idx === 0) {
+        return `infos `;
       } else {
-        return ` row nbr : ${ROW_IDX + 1} |`;
+        return `  ${idx} `;
       }
-    } else if (ROW_IDX === CINEMA_ROWS) {
-      return idx;
+    } else if (idx === 0) {
+      let infosIdx =
+        `${ROW_IDX + 1}`.length === 1
+          ? `row  ${ROW_IDX + 1}`
+          : `row ${ROW_IDX + 1}`;
+
+      return infosIdx;
 
       //   console.log('toto');
     } else if (ROW_IDX === USER_WISHED_ROW - 1 && idx <= USER_NBR_OF_SEATS) {

@@ -4,4 +4,8 @@
 
 # npm install
 
+## to get devDependencies
+
 # npm run start
+
+## to run the program
