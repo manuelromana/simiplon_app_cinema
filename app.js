@@ -1,7 +1,9 @@
 const utils = require('./utils');
+const emoji = require('node-emoji');
 
-const CINEMA_ROWS = 50;
-const CINEMA_NBR_OF_SEATS_PER_ROWS = 25;
+//define you cinema map
+let CINEMA_ROWS;
+let CINEMA_NBR_OF_SEATS_PER_ROWS;
 
 let userNbrOfSeats = utils.getAndCheckUserInput('how many tickets ? ');
 let userWishedRow = utils.getAndCheckUserInput(
@@ -10,8 +12,8 @@ let userWishedRow = utils.getAndCheckUserInput(
 );
 
 let myCinemaMap = utils.makeMapOfCinema(
-  CINEMA_ROWS,
-  CINEMA_NBR_OF_SEATS_PER_ROWS,
+  (CINEMA_ROWS = 10),
+  (CINEMA_NBR_OF_SEATS_PER_ROWS = 7),
   userNbrOfSeats,
   userWishedRow,
 );
@@ -20,3 +22,5 @@ myCinemaMap.forEach(elt => {
   let output = elt.join(' ');
   console.log(output);
 });
+console.log('your seat(s)', emoji.get('star'));
+console.log('free space', emoji.get('free'));
