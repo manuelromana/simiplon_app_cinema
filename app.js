@@ -8,15 +8,18 @@ let CINEMA_NBR_OF_SEATS_PER_ROWS = 9;
 let WELCOME = 'welcome to SIMPLONTHEATRE\n';
 let instructions =
   'help:\nenter value & press enter\nto QUIT leave input empty & press enter\n';
-let PROMPT_1 = `${WELCOME}${instructions}\nhow many tickets would you like ? : `;
-let PROMPT_2 = `${instructions}\nmore tickets ? choose how much : `;
+let PROMPT_1 = `${instructions}\nhow many tickets would you like ? : `;
+let PROMPT_2 = `${instructions}\nwant to continue ? How many tickets? : `;
 let ROW_QUESTION = 'Which row would you like to seat ? : ';
 let MESSAGE_TO_MUCH_SEATS_1 = 'this row has no enough seats available';
-let MESSAGE_TO_MUCH_SEATS_2 = 'two many tickets for one row';
+let MESSAGE_TO_MUCH_SEATS_2 = '\ntwo many tickets for one row';
 let counter = 0;
 let userInputs = {};
 
 while (counter >= 0) {
+  if (counter === 0) {
+    console.log('\x1b[32m%s\x1b[0m', WELCOME);
+  }
   counter++;
   const userNbrOfSeats = utils.getAndCheckUserInput(
     `${counter === 1 ? PROMPT_1 : PROMPT_2}`,
@@ -27,15 +30,13 @@ while (counter >= 0) {
     if (userInputs[`row-${userWishedRow}`] + userNbrOfSeats <= 9) {
       userInputs[`row-${userWishedRow}`] += userNbrOfSeats;
     } else {
-      console.log(MESSAGE_TO_MUCH_SEATS_1);
+      console.log('\x1b[41m%s\x1b[0m', MESSAGE_TO_MUCH_SEATS_1);
       continue;
     }
   } else {
     if (userNbrOfSeats > 9) {
-      console.log(MESSAGE_TO_MUCH_SEATS_2);
-      if (counter === 1) {
-        counter = 0;
-      }
+      console.log('\x1b[41m%s\x1b[0m', MESSAGE_TO_MUCH_SEATS_2);
+
       continue;
     } else {
       userInputs = {

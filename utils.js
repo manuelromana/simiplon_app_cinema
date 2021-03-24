@@ -9,11 +9,15 @@ exports.getAndCheckUserInput = (question, maxValue = null) => {
     process.exit();
   } else if (!Number.isInteger(input)) {
     console.log(
+      '\x1b[41m%s\x1b[0m',
       'You entered a wrong value, should be positive integer, exit app',
     );
     process.exit();
   } else if (maxValue && input > maxValue) {
-    console.log('the row you choose is not available in this cinema, exit app');
+    console.log(
+      '\x1b[41m%s\x1b[0m',
+      'the row you choose is not available in this cinema, exit app\n',
+    );
     process.exit();
   } else {
     return input;
