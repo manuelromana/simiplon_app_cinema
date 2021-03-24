@@ -26,7 +26,6 @@ exports.makeMapOfRowOfSeats = (
 
       return infosIdx;
     } else if (
-      USER_INPUTS &&
       USER_INPUTS[`row-${ROW_IDX + 1}`] &&
       idx <= USER_INPUTS[`row-${ROW_IDX + 1}`]
     ) {
